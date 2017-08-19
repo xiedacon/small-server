@@ -1,0 +1,25 @@
+{
+  "name": "small-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-style && echo 'test finish'",
+    "test-style": "./node_modules/standard/bin/cmd.js | ./node_modules/snazzy/bin/cmd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiedacon/small-server.git"
+  },
+  "keywords": [],
+  "author": "xiedacon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiedacon/small-server/issues"
+  },
+  "homepage": "https://github.com/xiedacon/small-server#README.md",
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  }
+}
