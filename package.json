@@ -4,8 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test-style && echo 'test finish'",
+    "test": "npm run test-style && npm run test-base",
+    "test-base":"./node_modules/.bin/mocha ./test/test.js --require intelli-espower-loader --timeout 10000",
     "test-style": "./node_modules/standard/bin/cmd.js | ./node_modules/snazzy/bin/cmd.js"
+  },
+  "standard": {
+    "global": [
+      "describe",
+      "it",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after"
+    ]
   },
   "repository": {
     "type": "git",
@@ -19,8 +30,13 @@
   },
   "homepage": "https://github.com/xiedacon/small-server#README.md",
   "devDependencies": {
+    "intelli-espower-loader": "^1.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "power-assert": "^1.4.4",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "args": "^3.0.4"
