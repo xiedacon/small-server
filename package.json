@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test-style && npm run test-base",
-    "test-base":"./node_modules/.bin/mocha ./test/test.js --require intelli-espower-loader --timeout 10000",
+    "test-base":"mocha ./test/* --require intelli-espower-loader --timeout 10000",
     "test-style": "./node_modules/standard/bin/cmd.js | ./node_modules/snazzy/bin/cmd.js"
   },
   "standard": {

@@ -6,16 +6,12 @@ const { resolve } = require('path')
 const fs = require('fs')
 const assert = require('power-assert')
 
-const { encoding } = { encoding: 'utf8' }// require('../config')
+const { encoding } = { encoding: 'utf8' }
 const index = fs.readFileSync(resolve(__dirname, '../public/index.html'), { encoding })
 const _404 = fs.readFileSync(resolve(__dirname, '../public/404.html'), { encoding })
 const server = 'http://localhost:3000'
 
 function fork (argv = []) {
-  // console.log(argv)
-  // let child = child_process.exec(
-  //   `istanbul cover ${resolve(__dirname, '../bin/small-server')} -- ${argv.join(' ')}`,
-  //   { stdio: ['ipc', null, null] })
   let child = childProcess.fork(
     resolve(__dirname, '../bin/small-server'),
     argv,
