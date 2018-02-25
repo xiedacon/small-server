@@ -9,7 +9,7 @@
 ## Usage
 
 ```
-sudo ln -s /path-to/small-server/bin/small-server /usr/local/bin/small-server
+ln -s /path-to/small-server/bin/small-server ~/.local/bin/small-server
 command -v small-server
 
 在当前目录使用
