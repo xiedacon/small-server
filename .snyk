@@ -6,3 +6,6 @@ patch:
   SNYK-JS-LODASH-567746:
     - args > string-similarity > lodash:
         patched: '2020-05-02T02:43:39.985Z'
+  'npm:debug:20170905':
+    - snyk > proxy-agent > pac-proxy-agent > get-uri > debug:
+        patched: '2020-05-02T14:40:24.371Z'
