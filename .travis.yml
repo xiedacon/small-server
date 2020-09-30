@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - "7"
+  - "10"
+  - "12"
+  - "14"
 
 # addons
 #   apt
@@ -15,7 +17,7 @@ node_js:
 # 4. install
 # 5. before_script
 # 6. script
-script: 
+script:
   - npm run test
 # 7. OPTIONAL before_cache ( for cleaning up cache )
 # 8. after_success or after_failure:
