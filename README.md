@@ -1,4 +1,4 @@
-# small-server
+# @xiedacon/small-server
 
 [![Build Status](https://travis-ci.org/xiedacon/small-server.svg?branch=master)](https://travis-ci.org/xiedacon/small-server)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
@@ -9,8 +9,7 @@
 ## Usage
 
 ```
-ln -s /path-to/small-server/bin/small-server ~/.local/bin/small-server
-command -v small-server
+npm i -g @xiedacon/small-server
 
 在当前目录使用
 small-server
@@ -28,6 +27,7 @@ small-server -r ~/root-dir
 
     -a, --address [value]  Address, default localhost (defaults to "localhost")
     -h, --help             Output usage information
+    -o, --open [value]     Open browser, default true (defaults to "true")
     -p, --port <n>         Port, default 3000 (defaults to 3000)
     -r, --root [value]     Root directory to start server (defaults to cwd)
     -v, --version          Output the version number

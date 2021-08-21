@@ -62,3 +62,9 @@ typings/
 
 *.gzip
 *.rdb
+
+# locks
+package-lock.json
+yarn.lock
+
+lib

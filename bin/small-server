@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-// access_log
-// error_log
-
 const { resolve } = require('path')
 const args = require('args')
 
@@ -10,5 +7,15 @@ args
   .option('address', 'Address, default localhost', 'localhost')
   .option('port', 'Port, default 3000', 3000)
   .option('root', 'Root directory to start server, default cwd', process.cwd(), root => resolve(process.cwd(), root))
+  .option('open', 'Open browser, default true', 'true', (open) => open !== 'false')
 
-require('../lib/small-server')(args.parse(process.argv))
+const argsv = args.parse(process.argv)
+
+const { SmallServer } = require('../lib/small-server')
+
+new SmallServer({
+  root: argsv.root,
+  open: argsv.open
+}).listen({
+  host: argsv.address, port: argsv.port
+})

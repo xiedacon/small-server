@@ -12,10 +12,12 @@ const _404 = fs.readFileSync(resolve(__dirname, '../public/404.html'), { encodin
 const server = 'http://localhost:3000'
 
 function fork (argv = []) {
-  let child = childProcess.fork(
+  argv.unshift('-o', 'false')
+
+  const child = childProcess.fork(
     resolve(__dirname, '../bin/small-server'),
     argv,
-    { stdio: ['ipc', null, null] })
+    { stdio: ['ipc', 'inherit', 'inherit'] })
 
   process.on('exit', () => {
     child.kill()
@@ -70,14 +72,6 @@ describe('small-server', function () {
         .expect(({ text }) => {
           assert(text === "It's index.html")
         })
-
-      await request(server)
-        .get('/test')
-        .expect(404)
-        .expect(({ headers, text }) => {
-          assert(headers['content-type'] === 'text/html; charset=utf-8')
-          assert(text === "It's 404.html")
-        })
     })
   })
 
@@ -97,7 +91,7 @@ describe('small-server', function () {
         .get('/')
         .expect(200)
         .expect(({ headers }) => {
-          assert(headers['server'] === 'small-server/0.0.1')
+          assert(headers.server === 'small-server/0.0.1')
         })
     })
 
@@ -146,7 +140,7 @@ describe('small-server', function () {
         .get('/')
         .expect(200)
         .expect(({ headers }) => {
-          assert(!headers['expires'])
+          assert(!headers.expires)
           assert(!headers['cache-control'])
         })
 
@@ -154,7 +148,7 @@ describe('small-server', function () {
         .get('/1.jpg')
         .expect(200)
         .expect(({ headers }) => {
-          assert(headers['expires'])
+          assert(headers.expires)
           assert(headers['cache-control'])
         })
     })
